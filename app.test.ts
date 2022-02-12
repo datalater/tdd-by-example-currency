@@ -6,12 +6,15 @@ class Dollar {
   }
 
   times(multiplier: number) {
-    this.amount *= multiplier;
+    return new Dollar(this.amount * multiplier);
   }
 }
 
 test("곱하기", () => {
   const five: Dollar = new Dollar(5);
-  five.times(2);
-  expect(five.amount).toBe(10);
+  let product: Dollar;
+  product = five.times(2);
+  expect(product.amount).toBe(10);
+  product = five.times(3);
+  expect(product.amount).toBe(15);
 });
