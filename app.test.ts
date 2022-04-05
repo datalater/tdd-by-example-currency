@@ -8,6 +8,10 @@ class Dollar {
   times(multiplier: number) {
     return new Dollar(this.amount * multiplier);
   }
+
+  equals(other: Dollar) {
+    return this.amount === other.amount;
+  }
 }
 
 test("곱하기", () => {
@@ -17,4 +21,9 @@ test("곱하기", () => {
   expect(product.amount).toBe(10);
   product = five.times(3);
   expect(product.amount).toBe(15);
+});
+
+test("값 동치성", () => {
+  expect(new Dollar(5).equals(new Dollar(5))).toBe(true);
+  expect(new Dollar(5).equals(new Dollar(6))).toBe(false);
 });
