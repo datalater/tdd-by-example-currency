@@ -1,7 +1,7 @@
 class Dollar {
-  amount: number;
+  private amount: number;
 
-  constructor(amount) {
+  constructor(amount: number) {
     this.amount = amount;
   }
 
@@ -16,11 +16,8 @@ class Dollar {
 
 test("곱하기", () => {
   const five: Dollar = new Dollar(5);
-  let product: Dollar;
-  product = five.times(2);
-  expect(product.amount).toBe(10);
-  product = five.times(3);
-  expect(product.amount).toBe(15);
+  expect(five.times(2)).toEqual(new Dollar(10));
+  expect(five.times(3)).toEqual(new Dollar(15));
 });
 
 test("값 동치성", () => {
